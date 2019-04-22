@@ -18,7 +18,7 @@ range.addEventListener('input', (e) => {
 
 form.addEventListener('submit', (e) => {
     if(isFormValid()) {
-        submitForm();
+        //submitForm();
     }
     e.preventDefault();
 });
@@ -148,18 +148,10 @@ function displaySavedState() {
     const state = getState();
     if(state) {
         const elements = form.elements;
-        elements.name.value = state.name ? state.name : '';
-        elements.surname.value = state.surname ? state.surname : '';
-        elements.email.value = state.email ? state.email : '';
-        elements.adress1.value = state.adress1 ? state.adress1 : '';
-        elements.adress2.value = state.adress2 ? state.adress2 : '';
-        elements.adress2.value = state.adress2 ? state.adress2 : '';
-        elements.birthday.value = state.birthday ? state.birthday : '';
-        elements.country.value = state.country ? state.country : '';
-        elements.gender.value = state.gender;
-        elements.mark.value = state.grade ? state.grade : '';
-        elements.grade.value = state.grade;
-        elements.about.value = state.about ? state.about : '';
+        const keys = Object.keys(state);
+        keys.forEach(key => {
+            elements[key].value = state[key] ? state[key] : '';
+        });
         if(state.courses) {
             state.courses.forEach(item => {
                 elements.courses[item].checked = true;
