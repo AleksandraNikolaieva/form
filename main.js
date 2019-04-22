@@ -1,5 +1,5 @@
 const form = document.forms.enroll;
-const range = form.elements['grade'];
+const range = form.elements.grade;
 const clearButtons = form.querySelectorAll('input[type=button]');
 const textFields = form.querySelectorAll('.clear > input:nth-of-type(1), textarea');
 const nonTextFields = form.querySelectorAll('input[type=date], select');
@@ -10,15 +10,15 @@ window.onload = displaySavedState;
 //event listeners
 
 range.addEventListener('input', (e) => {
-    const output = form.elements['mark'];
+    const output = form.elements.mark;
     output.className = '';
     output.value = e.target.value;
-    changeState(e.target.name, e.target.value);
+    changeState(output.name, e.target.value);
 });
 
 form.addEventListener('submit', (e) => {
     if(isFormValid()) {
-        //submitForm();
+        submitForm();
     }
     e.preventDefault();
 });
@@ -161,7 +161,7 @@ function displaySavedState() {
 }
 
 function isFormValid() {
-    const output = form.elements['mark'];
+    const output = form.elements.grade;
     const textFields = form.querySelectorAll('.clear > input:nth-of-type(1), textarea');
     const nonTextFields = form.querySelectorAll('input[type=date], select');
     const checkboxes = form.elements['courses'];
@@ -200,17 +200,18 @@ function isFormValid() {
         form.querySelector('.error-header').style.display = 'inline';
         return false;
     }
+    form.querySelector('.error-header').style.display = 'none';
     return true;
 }
 
 async function submitForm() {
-    const url = 'https://jsonplaceholder.typicode.com/users';
+    const url = 'https://reqres.in/api/users';
     const state = getState();
+    const loadingMessage = document.createElement('p');
+    loadingMessage.innerHTML = 'Wait a second...';
+    loadingMessage.className = 'loading-message';
+    document.body.appendChild(loadingMessage);
     try {
-        const loadingMessage = document.createElement('p');
-        loadingMessage.innerHTML = 'Wait a second...';
-        loadingMessage.className = 'loading-message';
-        document.body.appendChild(loadingMessage);
         const response = await new Promise(resolve =>
             setTimeout(resolve, 1500)
         ).then(() =>
@@ -220,11 +221,10 @@ async function submitForm() {
                 headers: { "Content-type": "application/json; charset=UTF-8" }
             })
         );
-
         const user = await response.json();
         const p = document.createElement('p');
         if (response.status === 201) {
-            p.innerText = 'Thanks, we received it!';
+            p.innerText = `Thanks, we received it!\n Your student id is ${user.id}.`;
             localStorage.removeItem('state');
             p.className = 'message';
             loadingMessage.remove();
@@ -237,8 +237,8 @@ async function submitForm() {
             form.remove();
             document.body.appendChild(p);
         }
+        console.log(user);
     } catch(err) {
         console.log(err);
     }
 }
-

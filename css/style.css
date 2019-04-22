@@ -341,7 +341,7 @@ input:-webkit-autofill {
     background-color: rgba(242,242,242,0.6);
     font-size: 20px;
     text-align: center;
-    line-height: 200px;
+    line-height: 100px;
     opacity: 0;
     animation: appearance 0.3s;
     animation-fill-mode: forwards;
