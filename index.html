@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Form</title>
+    <link rel='shortcut icon' href='./img/icon.png' type='image/png'>
+    <link rel='stylesheet' href='./css/style.css'>
+    <link rel='stylesheet' href='./css/responsive.css'>
+</head>
+<body>
+    <form novalidate name='enroll'>
+        <h1>Enroll to our Academy: </h1>
+        <span class='error-header'>Red fields are required</span>
+        <fieldset method='post'>
+            <div class='row'>
+                <div class='clear'>
+                    <input type='text' name='name' placeholder='Name' minlength='3' maxlength='15' pattern='[A-zА-я]*' required autofocus>
+                    <span class='error-message'>Only letters. Not less then 3.</span>
+                    <input type='button'>
+                </div>
+                <div class='clear'>
+                    <input type='text' name='surname' placeholder='Surname' minlength='3' maxlength='20' pattern='[A-zА-я]*' required>
+                    <span class='error-message'>Only letters. Not less then 3.</span>
+                    <input type='button'>
+                </div>
+            </div>
+            <div class='clear'>
+                <input type='email' name='email' placeholder='Email' required>
+                <span class='error-message'>Mail should be real.</span>
+                <input type='button'>
+            </div>
+            <div class='clear'>
+                <input type='text' name='adress1' placeholder='Adress line1' minlength='5' maxlength='20' required>
+                <span class='error-message'>Not less then 5 symbols.</span>
+                <input type='button'>
+            </div>
+            <div class='clear'>
+                <input type='text' name='adress2' placeholder='Adress line2'>
+                <span></span>
+                <input type='button'>
+            </div>
+            <div class='row'>
+                <input type='date' placeholder='Day of birth' name='birthday' min='1989-01-01' max='2004-01-01' required>
+                <select name='country' required>
+                    <option value='' disabled selected>Select your country</option>
+                    <option value='Ukraine'>Ukraine</option>
+                    <option value='USA'>USA</option>
+                    <option value='Spain'>Spain</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Chose courses: </legend>
+            <div class='controls'>
+                <label><input value='0' name='courses' type='checkbox'>HTML, CSS<span></span></label>
+                <label><input value='1' name='courses' type='checkbox'>Design<span></span></label>
+                <label><input value='2' name='courses' type='checkbox'>Java script<span></span></label>
+                <label><input value='3' name='courses' type='checkbox'>PHP<span></span></label>
+                <label><input value='4' name='courses' type='checkbox'>Python<span></span></label>
+                <label><input value='5' name='courses' type='checkbox'>Java<span></span></label>
+                <label><input value='6' name='courses' type='checkbox'>QA<span></span></label>
+                <label><input value='7' name='courses' type='checkbox'>.Net<span></span></label>
+                <label><input value='8' name='courses' type='checkbox'>Algorithms<span></span></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Your Gender:</legend>
+            <div class='controls'>
+                <label><input type='radio' name='gender' value='Female' required>Female<span></span></label>
+                <label><input type='radio' name='gender' value='Male' required>Male<span></span></label>
+                <label><input type='radio' name='gender' value='other' required>Other<span></span></label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Average grade in High School:</legend>
+            <div class='row'>
+                <input type='range' name='grade' min='1' max='12' step='1'>
+                <output name='mark'></output>
+            </div>  
+        </fieldset>
+        <fieldset>
+            <legend>About yourself in 3 sentences:</legend>
+            <div class='clear'>
+                <textarea name='about' rows='3' cols='33' minlength='20' maxlength='200'></textarea>
+                <span class='error-message'>Not less then 20 letters.</span>
+                <input type='button'>
+            </div>
+        </fieldset>
+        <input type='submit' value='Submit'>
+    </form>
+    <script src='./main.js'></script>
+</body>
+</html>
