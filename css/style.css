@@ -335,7 +335,7 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #ffffff;
 }
 
-.message {
+.info {
     width: 60%;
     height: 200px;
     background-color: rgba(242,242,242,0.6);

@@ -150,7 +150,7 @@ function displaySavedState() {
         const elements = form.elements;
         const keys = Object.keys(state);
         keys.forEach(key => {
-            elements[key].value = state[key] ? state[key] : '';
+            elements[key].value = state[key];
         });
         if(state.courses) {
             state.courses.forEach(item => {
@@ -222,10 +222,11 @@ async function submitForm() {
             })
         );
         const user = await response.json();
+        return user;
         const p = document.createElement('p');
         if (response.status === 201) {
             p.innerText = `Thanks, we received it!\n Your student id is ${user.id}.`;
-            localStorage.removeItem('state');
+            //localStorage.removeItem('state');
             p.className = 'message';
             loadingMessage.remove();
             form.remove();
