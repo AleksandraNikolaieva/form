@@ -129,13 +129,18 @@ input[type='email'],
 input[type='date'],
 select,
 textarea  {
-    margin: 5px 0;
+    margin: 0;
     background-color: rgba(3,3,3,0.4);
     outline: none;
     border-radius: 5px;
     border: none;
     color: #ffffff;
     padding: 5px;
+}
+
+input[type='date'],
+select {
+    margin: 16px 0 10px 0;
 }
 
 input[type='text'],
@@ -172,7 +177,9 @@ select:not(:focus):invalid {
 .row input[type='date'],
 .row output,
 .row select,
-.row input[type='range'] {
+.row input[type='range'],
+.row input[type='submit'],
+.row input[type='reset'] {
     width: 49%;
 }
 
@@ -191,11 +198,12 @@ input[type='button'] {
     background-size: cover;
     background-position: center;
     position: absolute;
-    top: 14px;
+    top: 10px;
     right: 5px;
     display: none;
     outline: none;
     cursor: pointer;
+    padding: 0px;
 }
 
 output {
@@ -299,8 +307,8 @@ input[type='range']::-ms-fill-upper {
     box-shadow: 0px 0px 3px #ffffff inset;
 }
 
-form input[type='submit'] {
-    width: 49%;
+input[type='submit'],
+input[type='reset'] {
     line-height: 40px;
     font-size: 20px;
     background-color: #313333;
@@ -313,7 +321,8 @@ form input[type='submit'] {
     transition: background-color 0.5s;
 }
 
-form input[type='submit']:focus {
+form input[type='submit']:hover,
+input[type='reset']:hover {
     background-color: #ffffff;
     color: #313333;
 }
@@ -361,10 +370,9 @@ input:-webkit-autofill {
     color: #C80000;
     font-size: 0.9em;
     font-weight: bold;
-    border-radius: 5px;
     padding: 0 5px;
     text-decoration: underline;
-    display: none;
+    visibility: hidden;
     opacity: 0;
     animation: appearance 0.3s;
     animation-fill-mode: forwards;
@@ -372,15 +380,14 @@ input:-webkit-autofill {
 
 .error-header {
     color: #C80000;
-    border-radius: 5px;
     font-weight: bold;
     padding: 0 5px;
     text-decoration: underline;
     font-size: 0.9em;
-    display: none;
+    visibility: hidden;
 }
 
-.loading-message {
+.loading {
     width: 60%;
     height: 200px;
     background-color: rgb(242,242,242);

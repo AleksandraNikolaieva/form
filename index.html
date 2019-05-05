@@ -16,33 +16,33 @@
         <fieldset method='post'>
             <div class='row'>
                 <div class='clear'>
-                    <input type='text' name='name' placeholder='Name' minlength='3' maxlength='15' pattern='[A-zА-я]*' required autofocus>
-                    <span class='error-message'>Only letters. Not less than 3.</span>
+                    <input type='text' name='name' placeholder='Name' minlength='2' maxlength='15' pattern='[A-zА-я]*' class='text' required autofocus>
+                    <span class='error-message'>Only letters. Not less than 2.</span>
                     <input type='button'>
                 </div>
                 <div class='clear'>
-                    <input type='text' name='surname' placeholder='Second name' minlength='3' maxlength='20' pattern='[A-zА-я]*' required>
-                    <span class='error-message'>Only letters. Not less than 3.</span>
+                    <input type='text' name='lastname' placeholder='Last name' minlength='3' maxlength='20' pattern='[A-zА-я]*' class='text' required>
+                    <span class='error-message'>Only letters. Not less than 2.</span>
                     <input type='button'>
                 </div>
             </div>
             <div class='clear'>
-                <input type='email' name='email' placeholder='Email' required>
+                <input type='email' name='email' placeholder='Email' class='text' required>
                 <span class='error-message'>Mail should be real.</span>
                 <input type='button'>
             </div>
             <div class='clear'>
-                <input type='text' name='adress1' placeholder='Address line1' minlength='5' maxlength='20' required>
-                <span class='error-message'>Not less then 5 symbols.</span>
+                <input type='text' name='address1' placeholder='Address line1' minlength='5' maxlength='20' class='text' required>
+                <span class='error-message'>Not less than 5 symbols.</span>
                 <input type='button'>
             </div>
             <div class='clear'>
-                <input type='text' name='adress2' placeholder='Address line2'>
+                <input type='text' name='address2' placeholder='Address line2' class='text'>
                 <span></span>
                 <input type='button'>
             </div>
             <div class='row'>
-                <input type='date' placeholder='Day of birth' name='birthday' min='1989-01-01' max='2004-01-01' required>
+                <input type='date' placeholder='Day of birth' name='birthday' required>
                 <select name='country' required>
                     <option value='' disabled selected>Select your country</option>
                     <option value='Ukraine'>Ukraine</option>
@@ -54,15 +54,15 @@
         <fieldset>
             <legend>Chose courses: </legend>
             <div class='controls'>
-                <label><input value='0' name='courses' type='checkbox'>HTML, CSS<span></span></label>
-                <label><input value='1' name='courses' type='checkbox'>Design<span></span></label>
-                <label><input value='2' name='courses' type='checkbox'>Java script<span></span></label>
-                <label><input value='3' name='courses' type='checkbox'>PHP<span></span></label>
-                <label><input value='4' name='courses' type='checkbox'>Python<span></span></label>
-                <label><input value='5' name='courses' type='checkbox'>Java<span></span></label>
-                <label><input value='6' name='courses' type='checkbox'>QA<span></span></label>
-                <label><input value='7' name='courses' type='checkbox'>.Net<span></span></label>
-                <label><input value='8' name='courses' type='checkbox'>Algorithms<span></span></label>
+                <label><input value=0 name='courses' type='checkbox'>HTML, CSS<span></span></label>
+                <label><input value=1 name='courses' type='checkbox'>Design<span></span></label>
+                <label><input value=2 name='courses' type='checkbox'>Java script<span></span></label>
+                <label><input value=3 name='courses' type='checkbox'>PHP<span></span></label>
+                <label><input value=4 name='courses' type='checkbox'>Python<span></span></label>
+                <label><input value=5 name='courses' type='checkbox'>Java<span></span></label>
+                <label><input value=6 name='courses' type='checkbox'>QA<span></span></label>
+                <label><input value=7 name='courses' type='checkbox'>.Net<span></span></label>
+                <label><input value=8 name='courses' type='checkbox'>Algorithms<span></span></label>
             </div>
         </fieldset>
         <fieldset>
@@ -83,12 +83,17 @@
         <fieldset>
             <legend>About yourself in 3 sentences:</legend>
             <div class='clear'>
-                <textarea name='about' rows='3' cols='33' minlength='20' maxlength='200'></textarea>
-                <span class='error-message'>Not less then 20 letters.</span>
+                <textarea name='about' rows='3' cols='33' minlength='20' maxlength='200' class='text'></textarea>
+                <span class='error-message'>Not less than 20 letters.</span>
                 <input type='button'>
             </div>
         </fieldset>
-        <input type='submit' value='Submit'>
+        <fieldset>
+            <div class='row'>
+                <input type='submit' value='Submit'>
+                <input type='reset' value='Reset'>
+            </div>
+        </fieldset>
     </form>
     <script src='./main.js'></script>
 </body>
