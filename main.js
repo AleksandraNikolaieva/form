@@ -239,32 +239,31 @@ function isFormValid() {
 }
 
 async function submitForm() {
-    const url = 'https://reqres.in/api/register';
+    const url = 'https://reqres.in/api/users';
     const state = getState();
     const loadingMessage = displayMessage('loading');
-    try {
-        const response = await new Promise(resolve =>
-            setTimeout(resolve, 1500)
-        )
-        .then(() =>
-            fetch(url, {
-                method: "POST",
-                body: JSON.stringify(state),
-                headers: { "Content-type": "application/json; charset=UTF-8" }
-            })
-        );
-        loadingMessage.remove();
-        form.remove();
-        removeListeners();
-        if(response.status >= 200 && response.status <= 300) {
-            const user = await response.json();
-            displayMessage('info', user);
-            localStorage.removeItem('state');
-        } else {
+    const response = await new Promise(resolve =>
+        setTimeout(resolve, 1500)
+    )
+    .then(() =>
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify(state),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
+        })
+        .catch(() => {
             displayMessage('error');
-        }
-    } catch(err) {
-        console.log(err);
+        })
+    );
+    loadingMessage.remove();
+    form.remove();
+    removeListeners();
+    if(response.status >= 200 && response.status <= 300) {
+        const user = await response.json();
+        displayMessage('info', user);
+        localStorage.removeItem('state');
+    } else {
+        displayMessage('error');
     }
 }
 
