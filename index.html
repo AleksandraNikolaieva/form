@@ -4,6 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <meta name='description' content="form to enroll the IT Academy">
     <title>Form</title>
     <link rel='shortcut icon' href='./img/icon.png' type='image/png'>
     <link rel='stylesheet' href='./css/style.css'>
@@ -16,34 +17,34 @@
         <fieldset method='post'>
             <div class='row'>
                 <div class='clear'>
-                    <input type='text' name='name' placeholder='Name' minlength='2' maxlength='15' pattern='[A-zА-я]*' class='text' required autofocus>
+                    <input type='text' name='name' placeholder='Name' minlength='2' maxlength='15' pattern='[A-zА-я]*' class='text' aria-label='name' required autofocus>
                     <span class='error-message'>Only letters. Not less than 2.</span>
-                    <input type='button'>
+                    <input type='button' aria-label='clear'>
                 </div>
                 <div class='clear'>
-                    <input type='text' name='lastname' placeholder='Last name' minlength='3' maxlength='20' pattern='[A-zА-я]*' class='text' required>
+                    <input type='text' name='lastname' placeholder='Last name' minlength='3' maxlength='20' pattern='[A-zА-я]*' class='text' aria-label='last name' required>
                     <span class='error-message'>Only letters. Not less than 2.</span>
-                    <input type='button'>
+                    <input type='button' aria-label='clear'>
                 </div>
             </div>
             <div class='clear'>
-                <input type='email' name='email' placeholder='Email' class='text' required>
+                <input type='email' name='email' placeholder='Email' class='text' aria-label='email' required>
                 <span class='error-message'>Mail should be real.</span>
-                <input type='button'>
+                <input type='button' aria-label='clear'>
             </div>
             <div class='clear'>
-                <input type='text' name='address1' placeholder='Address line1' minlength='5' maxlength='20' class='text' required>
+                <input type='text' name='address1' placeholder='Address line1' minlength='5' maxlength='20' class='text' aria-label='adress line1' required>
                 <span class='error-message'>Not less than 5 symbols.</span>
-                <input type='button'>
+                <input type='button' aria-label='clear'>
             </div>
             <div class='clear'>
-                <input type='text' name='address2' placeholder='Address line2' class='text'>
+                <input type='text' name='address2' placeholder='Address line2' class='text' aria-label='adress line2'>
                 <span></span>
-                <input type='button'>
+                <input type='button' aria-label='clear'>
             </div>
             <div class='row'>
-                <input type='date' placeholder='Day of birth' name='birthday' required>
-                <select name='country' required>
+                <input type='date' placeholder='Day of birth' name='birthday' aria-label='birthday' required>
+                <select name='country' required aria-label='country'>
                     <option value='' disabled selected>Select your country</option>
                     <option value='Ukraine'>Ukraine</option>
                     <option value='USA'>USA</option>
@@ -76,16 +77,16 @@
         <fieldset>
             <legend>Average grade in High School:</legend>
             <div class='row'>
-                <input type='range' name='grade' min='1' max='12' step='1'>
+                <input type='range' name='grade' min='1' max='12' step='1' aria-label='school grade'>
                 <output name='mark'></output>
             </div>  
         </fieldset>
         <fieldset>
             <legend>About yourself in 3 sentences:</legend>
             <div class='clear'>
-                <textarea name='about' rows='3' cols='33' minlength='20' maxlength='200' class='text'></textarea>
+                <textarea name='about' rows='3' cols='33' minlength='20' maxlength='200' class='text' aria-label='about yourself'></textarea>
                 <span class='error-message'>Not less than 20 letters.</span>
-                <input type='button'>
+                <input type='button' aria-label='clear'>
             </div>
         </fieldset>
         <fieldset>
